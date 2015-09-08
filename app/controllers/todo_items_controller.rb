@@ -34,7 +34,18 @@ class TodoItemsController < ApplicationController
       flash[:error] = "That todo item could no be saved."
       render action: :edit
     end
-  end  
+  end
+
+  def destroy
+    @todo_item = @todo_list.todo_items.find(params[:id])
+
+    if @todo_item.destroy
+      flash[:success] = "todo item was successfully deleted"
+    else
+      flash[:error] = "todo item could not be deleted"
+    end
+    redirect_to todo_list_todo_items_path
+  end
 
   def url_options
     { todo_list_id: params[:todo_list_id] }.merge(super)
