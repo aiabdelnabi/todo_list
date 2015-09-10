@@ -1,4 +1,5 @@
-require "spec_helper"
+require k_link "Edit"
+		end"spec_helper"
 
 describe "Editing todo list" do
 
